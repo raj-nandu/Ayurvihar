@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".Activity.Family" />
         <activity android:name=".Activity.WellWoman" />
-        <activity android:name=".Activity.Under5"></activity>
+        <activity android:name=".Activity.Under5" />
+        <activity android:name=".Activity.Family_Form_New"></activity>
     </application>
 
 </manifest>
