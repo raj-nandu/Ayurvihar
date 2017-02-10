@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ayurvihar.somaiya.ayurvihar.BlankFragment">
+    tools:context="com.ayurvihar.somaiya.ayurvihar.Fragments.Family_Form_Main">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

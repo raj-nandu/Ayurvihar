@@ -1,13 +1,13 @@
-package com.ayurvihar.somaiya.ayurvihar;
+package com.ayurvihar.somaiya.ayurvihar.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class WellWoman extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_well_woman);
     }
 }
