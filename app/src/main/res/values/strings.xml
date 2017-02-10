@@ -6,4 +6,5 @@
     <string name="somaiya_health_centre">Somaiya Health Centre</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="login">Login</string>
 </resources>
