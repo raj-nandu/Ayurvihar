@@ -5,80 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ayurvihar.somaiya.ayurvihar.Activity.MainActivity"
-    android:weightSum="7"
+    android:weightSum="5"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg_gradient"
     android:theme="@style/FamilyTheme">
 
-    <View
-        android:background="@color/colorPrimary"
-        android:layout_weight="3"
+    <TextView
+        android:layout_margin="40dp"
+        android:background="@drawable/better_headings"
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:theme="@style/TextTheme"
+        android:text="@string/somaiya_health_centre"
+        android:textColor="@android:color/white"/>
 
     <LinearLayout
-        android:background="@color/colorPrimary"
+        android:layout_margin="@dimen/marginEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:weightSum="5"
+        android:weightSum="3"
         android:orientation="vertical">
 
-        <TextView
-            android:padding="16dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Username"
-            android:theme="@style/TextTheme"
-            />
-
         <EditText
-            android:layout_margin="16dp"
-            android:layout_weight="1"
+            android:layout_marginStart="@dimen/marginEditText"
+            android:layout_marginEnd="@dimen/marginEditText"
+            android:layout_marginTop="@dimen/marginEditText"
+            android:layout_marginBottom="0dp"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
+            android:background="@drawable/better_shapes"
             android:backgroundTint="@android:color/white"
-            android:layout_height="match_parent"
-            android:hint="whoami"
+            android:layout_height="@dimen/inputHeight"
+            android:hint="@string/username"
             android:theme="@style/InputTheme"
             android:gravity="center"
             android:inputType="text"
-            android:cursorVisible="true"/>
-
-        <TextView
-            android:background="@color/colorPrimary"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Password"
-            android:theme="@style/TextTheme"
-            />
+            android:cursorVisible="true"
+            android:textColor="@android:color/black"/>
 
         <EditText
-            android:layout_margin="16dp"
-            android:background="@android:color/white"
-            android:layout_weight="1"
+            android:layout_marginStart="@dimen/marginEditText"
+            android:layout_marginEnd="@dimen/marginEditText"
+            android:layout_marginTop="@dimen/marginEditText"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/better_shapes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="shhhhh... password"
+            android:layout_height="@dimen/inputHeight"
+            android:hint="@string/password"
             android:theme="@style/InputTheme"
             android:gravity="center"
             android:inputType="textPassword"
-            android:cursorVisible="true" />
+            android:cursorVisible="true"
+            android:textColor="@android:color/black"/>
 
         <Spinner
-            android:layout_margin="16dp"
+            android:layout_marginStart="@dimen/marginEditText"
+            android:layout_marginEnd="@dimen/marginEditText"
+            android:layout_marginTop="@dimen/marginEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/white"
+            android:layout_height="@dimen/inputHeight"
+            android:background="@drawable/better_shapes"
             android:spinnerMode="dropdown"/>
 
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"/>
+        android:layout_weight="2"/>
 </LinearLayout>

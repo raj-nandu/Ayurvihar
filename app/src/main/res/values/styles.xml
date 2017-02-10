@@ -12,7 +12,7 @@
     </style>
 
     <style name="TextTheme" parent="FamilyTheme">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingStart">16dp</item>
@@ -23,7 +23,6 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@android:color/white</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
     </style>
