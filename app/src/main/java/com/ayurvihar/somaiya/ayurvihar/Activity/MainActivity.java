@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
 
-        login = (Button) findViewByI d(R.id.login);
+        login = (Button) findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
