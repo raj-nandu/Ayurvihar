@@ -8,7 +8,7 @@
     android:weightSum="5"
     android:orientation="vertical"
     android:background="@drawable/bg_gradient"
-    android:theme="@style/FamilyTheme">
+    android:theme="@style/LoginTheme">
 
     <TextView
         android:layout_margin="40dp"
@@ -18,22 +18,26 @@
         android:theme="@style/TextTheme"
         android:textSize="50sp"
         android:text="@string/somaiya_health_centre"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/black"/>
 
     <LinearLayout
         android:layout_margin="@dimen/marginEditText"
-        android:layout_width="match_parent"
+        android:layout_width="600dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login_round"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:weightSum="3"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <EditText
             android:layout_marginStart="@dimen/marginEditText"
             android:layout_marginEnd="@dimen/marginEditText"
             android:layout_marginTop="@dimen/marginEditText"
             android:layout_marginBottom="0dp"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/inputWidth"
+            android:layout_gravity="center"
             android:background="@drawable/better_shapes"
             android:layout_height="@dimen/inputHeight"
             android:hint="@string/username"
@@ -49,7 +53,8 @@
             android:layout_marginTop="@dimen/marginEditText"
             android:layout_marginBottom="0dp"
             android:background="@drawable/better_shapes"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/inputWidth"
+            android:layout_gravity="center"
             android:layout_height="@dimen/inputHeight"
             android:hint="@string/password"
             android:theme="@style/InputTheme"
@@ -62,7 +67,8 @@
             android:layout_marginStart="@dimen/marginEditText"
             android:layout_marginEnd="@dimen/marginEditText"
             android:layout_marginTop="@dimen/marginEditText"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/inputWidth"
+            android:layout_gravity="center"
             android:layout_height="@dimen/inputHeight"
             android:background="@drawable/better_shapes"
             android:spinnerMode="dropdown"/>
@@ -74,8 +80,8 @@
         android:layout_weight="2"
         android:layout_margin="50dp"
         android:background="@drawable/login_shape"
-        android:backgroundTint="@android:color/white"
+        android:backgroundTint="#FFECB3"
         android:theme="@style/TextTheme"
         android:text="@string/login"
-        android:textSize="25sp"/>
+        android:textSize="30sp"/>
 </LinearLayout>
