@@ -8,4 +8,10 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Add User</string>
-</resources>
+    <string-array name="departments">
+        <item>Family Data</item>
+        <item>NCD</item>
+        <item>Well Woman</item>
+        <item>Under Five</item>
+    </string-array>
+ </resources>

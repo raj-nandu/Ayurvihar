@@ -66,13 +66,17 @@
             android:textColor="@android:color/black"/>
 
         <Spinner
+            android:id="@+id/department_select"
             android:layout_marginStart="@dimen/marginEditText"
             android:layout_marginEnd="@dimen/marginEditText"
             android:layout_marginTop="@dimen/marginEditText"
             android:layout_width="@dimen/inputWidth"
             android:layout_gravity="center"
             android:layout_height="@dimen/inputHeight"
+            android:hint="Select Clinic"
+            android:gravity="center"
             android:background="@drawable/better_shapes"
+            android:entries="@array/departments"
             android:spinnerMode="dropdown"/>
 
     </LinearLayout>
@@ -86,5 +90,5 @@
         android:theme="@style/TextTheme"
         android:text="@string/login"
         android:id="@+id/login"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
 </LinearLayout>
