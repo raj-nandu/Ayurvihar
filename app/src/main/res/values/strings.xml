@@ -9,9 +9,9 @@
     <string name="login">Login</string>
     <string name="register">Add User</string>
     <string-array name="departments">
+        <item>Under Five</item>
         <item>Family Data</item>
         <item>NCD</item>
         <item>Well Woman</item>
-        <item>Under Five</item>
     </string-array>
- </resources>
+</resources>

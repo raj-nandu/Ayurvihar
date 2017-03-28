@@ -1,6 +1,7 @@
-package com.ayurvihar.somaiya.ayurvihar;
+package com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,11 +25,21 @@ import java.net.URLEncoder;
 
 public class BackgroundTask extends AsyncTask<String,Void,String> {
     Context ctx;
-    public BackgroundTask(Context ctx)
+    TaskComplete t;
+    private final ProgressDialog dialog ;
+    public BackgroundTask(Context ctx , ProgressDialog dialog , TaskComplete t )
     {
-        this.ctx =ctx;
+        this.ctx =ctx; this.dialog = dialog;
+        this.t = t;
+        Test = false;
     }
     static String method;
+    @Override
+    protected void onPreExecute() {
+        dialog.setMessage("Making Things ready ....");
+        dialog.show();
+        super.onPreExecute();
+    }
     @Override
     protected String doInBackground(String... params) {
         String reg_url = "http://nikhil4969.esy.es/Ayurvihar/register.php";
@@ -62,7 +74,6 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 e.printStackTrace();
             }
         }
-
         else if(method.equals("login") )
         {
             String login_name = params[1];
@@ -92,6 +103,8 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
+                if( response.startsWith("Sucessfully Logged"))
+                    Test = true;
                 return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -102,21 +115,17 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
         return null;
     }
 
-    @Override
-    protected void onProgressUpdate(Void... values) {
-        super.onProgressUpdate(values);
-    }
-
+    public static boolean Test = false;
     @Override
     protected void onPostExecute(String result) {
         if(result.equals("Registration Success..."))
         {
-            Toast.makeText(ctx, result + method+" Sucess", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, result , Toast.LENGTH_LONG).show();
         }
-        else
-        {
-            Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-        }
-
+        if( Test )
+            t.LoginTask();
+        else if(!method.equals("register"))
+            Toast.makeText(ctx, result , Toast.LENGTH_LONG).show();
+        dialog.dismiss();
     }
 }

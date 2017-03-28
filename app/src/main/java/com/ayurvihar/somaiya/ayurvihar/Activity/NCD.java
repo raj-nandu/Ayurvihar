@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.ayurvihar.somaiya.ayurvihar.R;
 
-public class Family extends Activity {
+public class NCD extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family__main);
+        setContentView(R.layout.activity_ncd);
     }
 }

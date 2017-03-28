@@ -9,5 +9,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ayurvihar.somaiya.ayurvihar.Activity.Under5">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Under 5"
+        android:textColor="#FFFF"
+        android:textSize="50sp"/>
 </RelativeLayout>

@@ -1,11 +1,12 @@
 package com.ayurvihar.somaiya.ayurvihar.Activity;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.ayurvihar.somaiya.ayurvihar.R;
 
-public class Family_Form_New extends AppCompatActivity {
+public class Family_Form_New extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -74,6 +74,7 @@
             android:layout_gravity="center"
             android:layout_height="@dimen/inputHeight"
             android:hint="Select Clinic"
+            android:theme="@style/InputTheme"
             android:gravity="center"
             android:background="@drawable/better_shapes"
             android:entries="@array/departments"
