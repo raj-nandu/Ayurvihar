@@ -29,5 +29,14 @@ public class Under5 extends Activity {
             }
         });
 
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Under5.this, "Called", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(),Under_5_Update_Child_Record.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

@@ -23,7 +23,8 @@
         <activity android:name=".Activity.Family_Form_New" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.NCD" />
-        <activity android:name=".Activity.Under5.Under5_Add_Child_Record"></activity>
+        <activity android:name=".Activity.Under5.Under5_Add_Child_Record" />
+        <activity android:name=".Activity.Under5.Under_5_Update_Child_Record"></activity>
     </application>
 
 </manifest>
