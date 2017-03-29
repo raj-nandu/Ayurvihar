@@ -8,11 +8,43 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ayurvihar.somaiya.ayurvihar.Activity.Under5">
-    <TextView
+    android:background="@drawable/under5_child_background"
+    tools:context="com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Under 5"
-        android:textColor="#FFFF"
-        android:textSize="50sp"/>
+        android:orientation="vertical"
+        android:weightSum="5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:weightSum="3">
+            <ImageButton
+                android:layout_width="250dp"
+                android:padding="20dp"
+                android:layout_height="250dp"
+                android:scaleType="centerInside"
+                android:background="@color/windowBg"
+                android:src="@drawable/under5_child_add_logo"
+                android:id="@+id/AddNew"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:layout_width="250dp"
+                android:padding="20dp"
+                android:layout_height="250dp"
+                android:scaleType="centerInside"
+                android:background="@color/windowBg"
+                android:src="@drawable/under5_child_update_logo"
+                android:id="@+id/Update"/>
+            <ImageButton
+                android:layout_width="250dp"
+                android:padding="20dp"
+                android:layout_height="250dp"
+                android:scaleType="centerInside"
+                android:background="@color/windowBg"
+                android:src="@drawable/under5_child_search_logo"
+                android:id="@+id/Search"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
