@@ -1,0 +1,226 @@
+package com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.view.Display;
+import android.widget.Toast;
+
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5;
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Core;
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Immunization_Core;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+/**
+ * Created by nikhil on 28-03-2017.
+ */
+
+public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
+
+    Context ctx;
+    TaskCompleteCR t;
+    private final ProgressDialog dialog ;
+    static String method;
+
+    public BackgroundTaskIM(Context ctx , ProgressDialog dialog , TaskCompleteCR t )
+    {
+        this.ctx =ctx; this.dialog = dialog; this.t = t; Test = false;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        dialog.setMessage("Making Changes Over Database ....");
+        dialog.show();
+
+    }
+
+    @Override
+    protected String doInBackground(String... params) {
+        String Create = "http://nikhil4969.esy.es/Ayurvihar/immunization_create.php";
+        String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
+        String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php"
+        method = params[0];
+        if (method.equals("Create") | method.equals("Update") ) {
+
+            try {
+                URL url;
+                if( method.equals("Create") )
+                    url = new URL(Create);
+                else
+                    url = new URL(Update);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+
+                //httpURLConnection.setDoInput(true);
+                OutputStream OS = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
+
+                String data =
+                        URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
+                                URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
+                                URLEncoder.encode("bcg", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&" +
+                                URLEncoder.encode("bcg_given", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8") + "&" +
+                                URLEncoder.encode("opv_0", "UTF-8") + "=" + URLEncoder.encode(params[5], "UTF-8") + "&" +
+                                URLEncoder.encode("opv_0_given", "UTF-8") + "=" + URLEncoder.encode(params[6], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_0", "UTF-8") + "=" + URLEncoder.encode(params[7], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_0_given", "UTF-8") + "=" + URLEncoder.encode(params[8], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_1", "UTF-8") + "=" + URLEncoder.encode(params[9], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_1_given", "UTF-8") + "=" + URLEncoder.encode(params[10], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_2", "UTF-8") + "=" + URLEncoder.encode(params[11], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_2_given", "UTF-8") + "=" + URLEncoder.encode(params[12], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_3", "UTF-8") + "=" + URLEncoder.encode(params[13], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_3_givend", "UTF-8") + "=" + URLEncoder.encode(params[14], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_1", "UTF-8") + "=" + URLEncoder.encode(params[15], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_1_given", "UTF-8") + "=" + URLEncoder.encode(params[16], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_2", "UTF-8") + "=" + URLEncoder.encode(params[17], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_2_given", "UTF-8") + "=" + URLEncoder.encode(params[18], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_3", "UTF-8") + "=" + URLEncoder.encode(params[19], "UTF-8") + "&" +
+                                URLEncoder.encode("hbv_3_given", "UTF-8") + "=" + URLEncoder.encode(params[20], "UTF-8") + "&" +
+                                URLEncoder.encode("measles_vita_1", "UTF-8") + "=" + URLEncoder.encode(params[21], "UTF-8") + "&" +
+                                URLEncoder.encode("measles_vita_1_given", "UTF-8") + "=" + URLEncoder.encode(params[22], "UTF-8") + "&" +
+                                URLEncoder.encode("mmr", "UTF-8") + "=" + URLEncoder.encode(params[23], "UTF-8") + "&" +
+                                URLEncoder.encode("mmr_given", "UTF-8") + "=" + URLEncoder.encode(params[24], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_booster1_vita_2", "UTF-8") + "=" + URLEncoder.encode(params[25], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_opv_booster1_vita_2_given", "UTF-8") + "=" + URLEncoder.encode(params[26], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_3", "UTF-8") + "=" + URLEncoder.encode(params[27], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_3_given", "UTF-8") + "=" + URLEncoder.encode(params[28], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_4", "UTF-8") + "=" + URLEncoder.encode(params[29], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_4_given", "UTF-8") + "=" + URLEncoder.encode(params[30], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_5", "UTF-8") + "=" + URLEncoder.encode(params[31], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_5_given", "UTF-8") + "=" + URLEncoder.encode(params[32], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_6", "UTF-8") + "=" + URLEncoder.encode(params[33], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_6_given", "UTF-8") + "=" + URLEncoder.encode(params[34], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_7", "UTF-8") + "=" + URLEncoder.encode(params[35], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_7_given", "UTF-8") + "=" + URLEncoder.encode(params[36], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_8", "UTF-8") + "=" + URLEncoder.encode(params[37], "UTF-8") + "&" +
+                                URLEncoder.encode("vita_8_given", "UTF-8") + "=" + URLEncoder.encode(params[38], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_booster2_vita_9", "UTF-8") + "=" + URLEncoder.encode(params[39], "UTF-8") + "&" +
+                                URLEncoder.encode("dpt_booster2_vita_9_given", "UTF-8") + "=" + URLEncoder.encode(params[40], "UTF-8");
+
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                OS.close();
+                InputStream IS = httpURLConnection.getInputStream();
+                IS.close();
+                //httpURLConnection.connect();
+                httpURLConnection.disconnect();
+                return "RS";
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if(method.equals("Select") )
+        {
+            try {
+                URL url = new URL(Select);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                String data = URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
+                        URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String response = "";
+                String line  = "";
+                while ((line = bufferedReader.readLine())!=null)
+                {
+                    response+= line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+
+                Log.i("Content" , response);
+                String R[] = response.split(",");
+                Under5_Immunization_Core.childidentifier = R[0];
+                public static String familyidentifier="";
+                public static String bcg="";
+                public static String bcg_given="";
+                public static String opv_0="";
+                public static String opv_0_given="";
+                public static String hbv_0="";
+                public static String hbv_0_given="";
+                public static String dpt_opv_1="";
+                public static String dpt_opv_1_given="";
+                public static String dpt_opv_2="";
+                public static String dpt_opv_2_given="";
+                public static String dpt_opv_3="";
+                public static String dpt_opv_3_given="";
+                public static String hbv_1="";
+                public static String hbv_1_given="";
+                public static String hbv_2="";
+                public static String hbv_2_given="";
+                public static String hbv_3="";
+                public static String hbv_3_given="";
+                public static String measles_vita_1="";
+                public static String measles_vita_1_given="";
+                public static String mmr="";
+                public static String mmr_given="";
+                public static String dpt_opv_booster1_vita_2="";
+                public static String dpt_opv_booster1_vita_2_given="";
+                public static String vita_3="";
+                public static String vita_3_given="";
+                public static String vita_4="";
+                public static String vita_4_given="";
+                public static String vita_5="";
+                public static String vita_5_given="";
+                public static String vita_6="";
+                public static String vita_6_given="";
+                public static String vita_7="";
+                public static String vita_7_given="";
+                public static String vita_8="";
+                public static String vita_8_given="";
+                public static String dpt_booster2_vita_9="";
+                public static String dpt_booster2_vita_9_given="";
+                return "Update RS";
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public static boolean Test = false;
+    @Override
+    protected void onPostExecute(String result) {
+        Toast.makeText(ctx, "Results Are : " + result, Toast.LENGTH_SHORT).show();
+        switch (method)
+        {
+            case "Create" : t.TaskCreate();
+                break;
+            case "Update" : t.TaskUpdate();
+                break;
+            case "Select" : t.TaskRecords();
+                break;
+        }
+        dialog.dismiss();
+    }
+}

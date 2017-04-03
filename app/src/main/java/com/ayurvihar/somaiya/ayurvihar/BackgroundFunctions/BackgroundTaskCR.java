@@ -3,8 +3,12 @@ package com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.Display;
 import android.widget.Toast;
+
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5;
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Core;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,9 +40,10 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
 
     @Override
     protected void onPreExecute() {
+        super.onPreExecute();
         dialog.setMessage("Making Changes Over Database ....");
         dialog.show();
-        super.onPreExecute();
+
     }
 
     @Override
@@ -117,7 +122,21 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
-                return response;
+
+
+                Log.i("Content" , response);
+                String R[] = response.split(",");
+                Under5_Core.childidentifier = R[0];
+                Under5_Core.familyidentifier = R[1];
+                Under5_Core.address = R[2];
+                Under5_Core.mobilenumber = R[3];
+                Under5_Core.childname = R[4];
+                Under5_Core.fathername = R[5];
+                Under5_Core.mothername = R[6];
+                Under5_Core.dob = R[7];
+                Under5_Core.sex = R[8];
+
+                return "Update RS";
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {

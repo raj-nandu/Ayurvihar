@@ -19,11 +19,11 @@ public class Under5 extends Activity {
         ImageButton add = (ImageButton) findViewById(R.id.AddNew);
         ImageButton update = (ImageButton) findViewById(R.id.Update);
         ImageButton Search = (ImageButton) findViewById(R.id.Search);
+        ImageButton viewandupdate = (ImageButton) findViewById(R.id.ViewAndUpdate);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Under5.this, "Called", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(),Under5_Add_Child_Record.class);
                 startActivity(i);
             }
@@ -32,11 +32,28 @@ public class Under5 extends Activity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Under5.this, "Called", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(),Under_5_Update_Child_Record.class);
+                i.putExtra("type" , "!Scan");
                 startActivity(i);
             }
         });
 
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),Under_5_Update_Child_Record.class);
+                i.putExtra("type" , "Scan");
+                startActivity(i);
+            }
+        });
+
+        viewandupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Under5.this, "Called", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(),);
+                startActivity(i);
+            }
+        });
     }
 }

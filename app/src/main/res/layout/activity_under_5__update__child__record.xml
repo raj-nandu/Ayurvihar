@@ -149,7 +149,7 @@
             android:layout_width="320dp"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"
-
+            android:onClick="setDate"
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <EditText
@@ -175,5 +175,14 @@
                 android:textAlignment="center"/>
         </android.support.design.widget.TextInputLayout>
 
+        <Button
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/update"
+            android:textSize="28sp"
+            android:text="Update"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
