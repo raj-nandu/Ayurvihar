@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskCR;
+import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
 import com.ayurvihar.somaiya.ayurvihar.R;
 
-public class Under_5_Update_Child_Record extends Activity {
+public class Under_5_Update_Child_Record extends Activity implements TaskCompleteCR {
 
     public ProgressDialog dialog;
 
@@ -30,5 +33,33 @@ public class Under_5_Update_Child_Record extends Activity {
         Addn9 = (EditText) findViewById(R.id.Addn9);
         Button AddRecord = (Button) findViewById(R.id.Search2);
 
+        Addn2.setAlpha(0.0f);
+        Addn3.setAlpha(0.0f);
+        Addn4.setAlpha(0.0f);
+        Addn5.setAlpha(0.0f);
+        Addn6.setAlpha(0.0f);
+        Addn7.setAlpha(0.0f);
+        Addn8.setAlpha(0.0f);
+        Addn9.setAlpha(0.0f);
+
+        AddRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BackgroundTaskCR backgroundTaskCR = new BackgroundTaskCR(getApplicationContext() , dialog , Under_5_Update_Child_Record.this);
+                backgroundTaskCR.execute("Select");
+            }
+        });
+    }
+
+    public void TaskCreate()
+    {
+
+    }
+    public void TaskUpdate()
+    {
+
+    }
+    public void TaskRecords()
+    {
     }
 }
