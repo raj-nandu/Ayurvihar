@@ -4,11 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.Display;
 import android.widget.Toast;
 
-import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5;
-import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Core;
 import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Immunization_Core;
 
 import java.io.BufferedReader;
@@ -51,7 +48,7 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
     protected String doInBackground(String... params) {
         String Create = "http://nikhil4969.esy.es/Ayurvihar/immunization_create.php";
         String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
-        String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php"
+        String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php";
         method = params[0];
         if (method.equals("Create") | method.equals("Update") ) {
 
@@ -155,49 +152,48 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 inputStream.close();
                 httpURLConnection.disconnect();
 
-
                 Log.i("Content" , response);
                 String R[] = response.split(",");
                 Under5_Immunization_Core.childidentifier = R[0];
                 Under5_Immunization_Core.familyidentifier=R[1];
-                public static String bcg="";
-                public static String bcg_given="";
-                public static String opv_0="";
-                public static String opv_0_given="";
-                public static String hbv_0="";
-                public static String hbv_0_given="";
-                public static String dpt_opv_1="";
-                public static String dpt_opv_1_given="";
-                public static String dpt_opv_2="";
-                public static String dpt_opv_2_given="";
-                public static String dpt_opv_3="";
-                public static String dpt_opv_3_given="";
-                public static String hbv_1="";
-                public static String hbv_1_given="";
-                public static String hbv_2="";
-                public static String hbv_2_given="";
-                public static String hbv_3="";
-                public static String hbv_3_given="";
-                public static String measles_vita_1="";
-                public static String measles_vita_1_given="";
-                public static String mmr="";
-                public static String mmr_given="";
-                public static String dpt_opv_booster1_vita_2="";
-                public static String dpt_opv_booster1_vita_2_given="";
-                public static String vita_3="";
-                public static String vita_3_given="";
-                public static String vita_4="";
-                public static String vita_4_given="";
-                public static String vita_5="";
-                public static String vita_5_given="";
-                public static String vita_6="";
-                public static String vita_6_given="";
-                public static String vita_7="";
-                public static String vita_7_given="";
-                public static String vita_8="";
-                public static String vita_8_given="";
-                public static String dpt_booster2_vita_9="";
-                public static String dpt_booster2_vita_9_given="";
+                Under5_Immunization_Core.bcg=R[2];
+                Under5_Immunization_Core.bcg_given=R[3];
+                Under5_Immunization_Core.opv_0=R[4];
+                Under5_Immunization_Core.opv_0_given=R[5];
+                Under5_Immunization_Core.hbv_0=R[6];
+                Under5_Immunization_Core.hbv_0_given=R[7];
+                Under5_Immunization_Core.dpt_opv_1=R[8];
+                Under5_Immunization_Core.dpt_opv_1_given=R[9];
+                Under5_Immunization_Core.dpt_opv_2=R[10];
+                Under5_Immunization_Core.dpt_opv_2_given=R[12];
+                Under5_Immunization_Core.dpt_opv_3=R[13];
+                Under5_Immunization_Core.dpt_opv_3_given=R[14];
+                Under5_Immunization_Core.hbv_1=R[15];
+                Under5_Immunization_Core.hbv_1_given=R[16];
+                Under5_Immunization_Core.hbv_2=R[17];
+                Under5_Immunization_Core.hbv_2_given=R[18];
+                Under5_Immunization_Core.hbv_3=R[19];
+                Under5_Immunization_Core.hbv_3_given=R[20];
+                Under5_Immunization_Core.measles_vita_1=R[21];
+                Under5_Immunization_Core.measles_vita_1_given=R[22];
+                Under5_Immunization_Core.mmr=R[23];
+                Under5_Immunization_Core.mmr_given=R[24];
+                Under5_Immunization_Core.dpt_opv_booster1_vita_2=R[25];
+                Under5_Immunization_Core.dpt_opv_booster1_vita_2_given=R[26];
+                Under5_Immunization_Core.vita_3=R[27];
+                Under5_Immunization_Core.vita_3_given=R[28];
+                Under5_Immunization_Core.vita_4=R[29];
+                Under5_Immunization_Core.vita_4_given=R[30];
+                Under5_Immunization_Core.vita_5=R[31];
+                Under5_Immunization_Core.vita_5_given=R[32];
+                Under5_Immunization_Core.vita_6=R[33];
+                Under5_Immunization_Core.vita_6_given=R[34];
+                Under5_Immunization_Core.vita_7=R[35];
+                Under5_Immunization_Core.vita_7_given=R[36];
+                Under5_Immunization_Core.vita_8=R[37];
+                Under5_Immunization_Core.vita_8_given=R[38];
+                Under5_Immunization_Core.dpt_booster2_vita_9=R[39];
+                Under5_Immunization_Core.dpt_booster2_vita_9_given=R[40];
                 return "Update RS";
             } catch (MalformedURLException e) {
                 e.printStackTrace();

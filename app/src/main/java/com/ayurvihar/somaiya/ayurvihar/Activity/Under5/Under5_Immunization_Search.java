@@ -1,9 +1,12 @@
-package com.ayurvihar.somaiya.ayurvihar;
+package com.ayurvihar.somaiya.ayurvihar.Activity.Under5;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Under5_Immunization_Search extends AppCompatActivity {
+import com.ayurvihar.somaiya.ayurvihar.R;
+
+public class Under5_Immunization_Search extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

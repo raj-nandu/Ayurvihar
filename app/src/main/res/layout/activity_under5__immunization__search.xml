@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ayurvihar.somaiya.ayurvihar.Under5_Immunization_Search">
+    tools:context="com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Immunization_Search">
 
 </android.support.constraint.ConstraintLayout>

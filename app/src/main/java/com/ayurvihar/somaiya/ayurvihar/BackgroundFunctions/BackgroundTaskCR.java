@@ -4,10 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.Display;
 import android.widget.Toast;
 
-import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5;
+
 import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Core;
 
 import java.io.BufferedReader;

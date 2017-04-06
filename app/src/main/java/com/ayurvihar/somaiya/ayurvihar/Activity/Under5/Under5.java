@@ -51,7 +51,7 @@ public class Under5 extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Under5.this, "Called", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(),);
+                Intent i = new Intent(getApplicationContext(),Under5_OnePlace.class);
                 startActivity(i);
             }
         });
