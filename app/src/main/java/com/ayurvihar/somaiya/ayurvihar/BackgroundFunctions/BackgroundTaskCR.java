@@ -124,18 +124,23 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
 
 
                 Log.i("Content" , response);
-                String R[] = response.split(",");
-                Under5_Core.childidentifier = R[0];
-                Under5_Core.familyidentifier = R[1];
-                Under5_Core.address = R[2];
-                Under5_Core.mobilenumber = R[3];
-                Under5_Core.childname = R[4];
-                Under5_Core.fathername = R[5];
-                Under5_Core.mothername = R[6];
-                Under5_Core.dob = R[7];
-                Under5_Core.sex = R[8];
+                try
+                {
+                    String R[] = response.split(",");
+                    Under5_Core.childidentifier = R[0];
+                    Under5_Core.familyidentifier = R[1];
+                    Under5_Core.address = R[2];
+                    Under5_Core.mobilenumber = R[3];
+                    Under5_Core.childname = R[4];
+                    Under5_Core.fathername = R[5];
+                    Under5_Core.mothername = R[6];
+                    Under5_Core.dob = R[7];
+                    Under5_Core.sex = R[8];
+                }
+                catch (Exception E){
+                }
 
-                return "Update RS";
+                return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -145,6 +150,7 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
         return null;
     }
 
+    public boolean Present = true;
     public static boolean Test = false;
     @Override
     protected void onPostExecute(String result) {
@@ -155,7 +161,9 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
                             break;
             case "Update" : t.TaskUpdate();
                             break;
-            case "Select" : t.TaskRecords();
+            case "Select" : if(result.equals("No Records Found"))
+                            Present = false;
+                            t.TaskRecords();
                             break;
         }
         dialog.dismiss();
