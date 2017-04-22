@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskCR;
+import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskIM;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
 import com.ayurvihar.somaiya.ayurvihar.R;
 import com.ayurvihar.somaiya.ayurvihar.Under5_Scroll_View;
@@ -18,6 +19,7 @@ import com.ayurvihar.somaiya.ayurvihar.Under5_Scroll_View;
 public class Under5_OnePlace extends Activity implements TaskCompleteCR {
 
     BackgroundTaskCR backgroundTaskCR;
+    BackgroundTaskIM backgroundTaskIM;
     public ProgressDialog dialog;
     EditText cid ;
     Button btn;
@@ -34,6 +36,8 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
             public void onClick(View v) {
                 backgroundTaskCR = new BackgroundTaskCR(getApplicationContext() , dialog , Under5_OnePlace.this);
                 backgroundTaskCR.execute("Select" ,cid.getText().toString(),"");
+                backgroundTaskIM = new BackgroundTaskIM(getApplicationContext(), dialog, Under5_OnePlace.this);
+                backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
             }
         });
     }
