@@ -46,9 +46,9 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String Create = "http://nikhil4969.esy.es/Ayurvihar/immunization_create.php";
-        String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
-        String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php";
+        String Create = "http://ayurvihar.000webhostapp.com/Ayurvihar/immunization_create.php";
+        String Update = "http://ayurvihar.000webhostapp.com/Ayurvihar/immunization_update.php";
+        String Select = "http://ayurvihar.000webhostapp.com/Ayurvihar/immunization_select.php";
         method = params[0];
         if (method.equals("Create") | method.equals("Update") ) {
 
