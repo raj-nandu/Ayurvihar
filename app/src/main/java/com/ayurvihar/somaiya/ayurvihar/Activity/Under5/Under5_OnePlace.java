@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskCR;
-import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskHR;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskIM;
+import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskHR;
+
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
 import com.ayurvihar.somaiya.ayurvihar.R;
 import com.ayurvihar.somaiya.ayurvihar.Under5_Scroll_View;
@@ -51,11 +51,11 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
         if( backgroundTaskCR.Present )
         {
             // ToDo Uncomment these
-            /* backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
+            backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
             backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
             backgroundTaskHR = new BackgroundTaskHR(getApplicationContext() , dialog , Under5_OnePlace.this);
             backgroundTaskHR.execute("Select" ,cid.getText().toString(),"");
-            */
+
             Intent i = new Intent(getApplicationContext() , Under5_Scroll_View.class);
             i.putExtra("cid" , cid.getText().toString());
             startActivity(i);
