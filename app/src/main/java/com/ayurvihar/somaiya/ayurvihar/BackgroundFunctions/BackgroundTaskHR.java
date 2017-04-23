@@ -50,7 +50,7 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
         String Create="http://nikhil4969.esy.es/Ayurvihar/health_rec_add.php";
         String Update="http://nikhil4969.esy.es/Ayurvihar/health_rec_update.php";
         String Select="http://nikhil4969.esy.es/Ayurvihar/health_rec_display.php";
-        String method=params[0];
+        method=params[0];
         if(method.equals("Create")|method.equals("Update"))
         {
             try
@@ -144,7 +144,7 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                         uhr.remarks=temp[7];
 
                         // Adding object into ArrayList
-                        hr.add(uhr);
+                        Under5_Health_Record_Core.hr.add(uhr);
                     }
                 }
                 return "Update RS";

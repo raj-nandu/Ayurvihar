@@ -39,6 +39,12 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
             public void onClick(View v) {
                 backgroundTaskCR = new BackgroundTaskCR(getApplicationContext() , dialog , Under5_OnePlace.this);
                 backgroundTaskCR.execute("Select" ,cid.getText().toString(),"");
+                // ToDo Uncomment these
+                backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
+                backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
+                backgroundTaskHR = new BackgroundTaskHR(getApplicationContext() , dialog , Under5_OnePlace.this);
+                backgroundTaskHR.execute("Select" ,cid.getText().toString(),"");
+
             }
         });
     }
@@ -46,23 +52,19 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
     @Override
     public void TaskCreate() {    }
 
+    int count=0;
     @Override
     public void TaskRecords() {
-        if( backgroundTaskCR.Present )
-        {
-            // ToDo Uncomment these
-            backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
-            backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
-            backgroundTaskHR = new BackgroundTaskHR(getApplicationContext() , dialog , Under5_OnePlace.this);
-            backgroundTaskHR.execute("Select" ,cid.getText().toString(),"");
+        count++;
+        if( count == 3) {
+            if (backgroundTaskCR.Present) {
 
-            Intent i = new Intent(getApplicationContext() , Under5_Scroll_View.class);
-            i.putExtra("cid" , cid.getText().toString());
-            startActivity(i);
-        }
-        else
-        {
-            Toast.makeText(this, "No Records Found", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), Under5_Scroll_View.class);
+                i.putExtra("cid", cid.getText().toString());
+                startActivity(i);
+            } else {
+                Toast.makeText(this, "No Records Found", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

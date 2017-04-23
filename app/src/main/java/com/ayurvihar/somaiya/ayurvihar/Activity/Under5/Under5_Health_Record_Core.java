@@ -7,15 +7,15 @@ import java.util.ArrayList;
  */
 
 public class Under5_Health_Record_Core {
-    public static String childhealthcheckupnumber="";
-    public static String childidentifier="";
-    public static String familyidentifier="";
-    public static String checkupdate="";
-    public static String height="";
-    public static String weight="";
-    public static String weightforagestatus="";
-    public static String remarks="";
+    public String childhealthcheckupnumber="";
+    public String childidentifier="";
+    public String familyidentifier="";
+    public String checkupdate="";
+    public String height="";
+    public String weight="";
+    public String weightforagestatus="";
+    public String remarks="";
 
     // Stores instances of Health Records for display
-    public static ArrayList<Under5_Health_Record_Core> hr ;
+    public static ArrayList<Under5_Health_Record_Core> hr = new ArrayList<>() ;
 }
