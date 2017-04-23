@@ -47,9 +47,9 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String Create = "http://ayurvihar.000webhostapp.com/Ayurvihar/child_rec_add.php";
-        String Update = "http://ayurvihar.000webhostapp.com/Ayurvihar/child_rec_update.php";
-        String Select = "http://ayurvihar.000webhostapp.com/Ayurvihar/child_rec_display.php";
+        String Create = "http://nikhil4969.esy.es/Ayurvihar/child_rec_add.php";
+        String Update = "http://nikhil4969.esy.es/Ayurvihar/child_rec_update.php";
+        String Select = "http://nikhil4969.esy.es/Ayurvihar/child_rec_display.php";
         method = params[0];
         if (method.equals("Create") | method.equals("Update") ) {
 
