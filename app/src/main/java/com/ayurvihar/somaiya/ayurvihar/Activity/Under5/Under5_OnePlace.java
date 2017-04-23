@@ -50,11 +50,12 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
     public void TaskRecords() {
         if( backgroundTaskCR.Present )
         {
-            backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
+            // ToDo Uncomment these
+            /* backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
             backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
             backgroundTaskHR = new BackgroundTaskHR(getApplicationContext() , dialog , Under5_OnePlace.this);
             backgroundTaskHR.execute("Select" ,cid.getText().toString(),"");
-
+            */
             Intent i = new Intent(getApplicationContext() , Under5_Scroll_View.class);
             i.putExtra("cid" , cid.getText().toString());
             startActivity(i);
