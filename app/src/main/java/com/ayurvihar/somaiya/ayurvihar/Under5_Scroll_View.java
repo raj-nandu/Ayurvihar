@@ -11,10 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.ayurvihar.somaiya.ayurvihar.Fragment.Tab1;
+import com.ayurvihar.somaiya.ayurvihar.Fragment.Tab2;
+import com.ayurvihar.somaiya.ayurvihar.Fragment.Tab3;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Under5_Scroll_View extends AppCompatActivity {
+public class Under5_Scroll_View extends Activity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -33,13 +37,13 @@ public class Under5_Scroll_View extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter( getSupportFragmentManager());
-        adapter.addFrag(new Tab1(), "Nikhil's Tab 1");
-        adapter.addFrag(new Tab2(), "Nikhil's Tab 2");
-        adapter.addFrag(new Tab2(), "Nikhil's Tab 3");
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new Tab1(), "Child Data");
+        adapter.addFrag(new Tab2(), "Immunization");
+        adapter.addFrag(new Tab3(), "Health Checkup");
 
-        viewPager.setAdapter(adapter);
-        if( !Saved.textTab1.equals(""))
+       viewPager.setAdapter(adapter);
+       /* if( !Saved.textTab1.equals(""))
         {
             EditText e = (EditText) findViewById(R.id.Text1);
             e.setText(Saved.textTab1);
@@ -53,7 +57,7 @@ public class Under5_Scroll_View extends AppCompatActivity {
         {
             EditText e = (EditText) findViewById(R.id.Text3);
             e.setText(Saved.textTab3);
-        }
+        }*/
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

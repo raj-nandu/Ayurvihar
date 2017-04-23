@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskCR;
+import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskHR;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskIM;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
 import com.ayurvihar.somaiya.ayurvihar.R;
@@ -20,6 +21,8 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
 
     BackgroundTaskCR backgroundTaskCR;
     BackgroundTaskIM backgroundTaskIM;
+    BackgroundTaskHR backgroundTaskHR;
+
     public ProgressDialog dialog;
     EditText cid ;
     Button btn;
@@ -36,21 +39,22 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
             public void onClick(View v) {
                 backgroundTaskCR = new BackgroundTaskCR(getApplicationContext() , dialog , Under5_OnePlace.this);
                 backgroundTaskCR.execute("Select" ,cid.getText().toString(),"");
-                backgroundTaskIM = new BackgroundTaskIM(getApplicationContext(), dialog, Under5_OnePlace.this);
-                backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
             }
         });
     }
 
     @Override
-    public void TaskCreate() {
-
-    }
+    public void TaskCreate() {    }
 
     @Override
     public void TaskRecords() {
         if( backgroundTaskCR.Present )
         {
+            backgroundTaskIM = new BackgroundTaskIM(getApplicationContext() , dialog , Under5_OnePlace.this);
+            backgroundTaskIM.execute("Select" ,cid.getText().toString(),"");
+            backgroundTaskHR = new BackgroundTaskHR(getApplicationContext() , dialog , Under5_OnePlace.this);
+            backgroundTaskHR.execute("Select" ,cid.getText().toString(),"");
+
             Intent i = new Intent(getApplicationContext() , Under5_Scroll_View.class);
             i.putExtra("cid" , cid.getText().toString());
             startActivity(i);
@@ -62,7 +66,5 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
     }
 
     @Override
-    public void TaskUpdate() {
-
-    }
+    public void TaskUpdate() {    }
 }
