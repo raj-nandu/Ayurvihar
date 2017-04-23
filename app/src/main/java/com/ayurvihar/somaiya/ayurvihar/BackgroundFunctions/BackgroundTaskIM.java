@@ -155,7 +155,7 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 Log.i("Content" , response);
                 String R[] = response.split(",");
                 Under5_Immunization_Core.childidentifier = R[0];
-                Under5_Immunization_Core.familyidentifier=R[1];
+                Under5_Immunization_Core.familyidentifier = R[1];
                 Under5_Immunization_Core.bcg=R[2];
                 Under5_Immunization_Core.bcg_given=R[3];
                 Under5_Immunization_Core.opv_0=R[4];
