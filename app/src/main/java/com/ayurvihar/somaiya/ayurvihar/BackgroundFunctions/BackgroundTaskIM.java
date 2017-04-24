@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Add_Child_Record;
 import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Immunization_Core;
 
 import java.io.BufferedReader;
@@ -206,15 +207,19 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
         Toast.makeText(ctx, "Results Are : " + result, Toast.LENGTH_SHORT).show();
-        switch (method)
+        if(!Under5_Add_Child_Record.Test)
         {
-            case "Create" : t.TaskCreate();
-                break;
-            case "Update" : t.TaskUpdate();
-                break;
-            case "Select" : t.TaskRecords();
-                break;
+            switch (method)
+            {
+                case "Create" : t.TaskCreate();
+                    break;
+                case "Update" : t.TaskUpdate();
+                    break;
+                case "Select" : t.TaskRecords();
+                    break;
+            }
         }
+        Under5_Add_Child_Record.Test = false;
         dialog.dismiss();
     }
 }

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5;
+import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_Core;
 import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under5_OnePlace;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskHR;
 import com.ayurvihar.somaiya.ayurvihar.R;
@@ -37,15 +39,18 @@ public class Tab3 extends Fragment {
         addhl7 = (EditText) view.findViewById(R.id.addhl7);
         addhl8 = (EditText) view.findViewById(R.id.addhl8);
 
+        addhl2.setText(Under5_Core.childidentifier);
+        addhl3.setText(Under5_Core.familyidentifier);
+
         Button button = (Button)view.findViewById(R.id.addhl);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BackgroundTaskHR backgroundTaskHR = new BackgroundTaskHR(Under5_Scroll_View.ctx , Under5_Scroll_View.dialog , Under5_Scroll_View.SV);
                 backgroundTaskHR.execute("Create" ,
-                        addhl1.getText().toString(),
                         addhl2.getText().toString(),
                         addhl3.getText().toString(),
+                        addhl1.getText().toString(),
                         addhl4.getText().toString(),
                         addhl5.getText().toString(),
                         addhl6.getText().toString(),

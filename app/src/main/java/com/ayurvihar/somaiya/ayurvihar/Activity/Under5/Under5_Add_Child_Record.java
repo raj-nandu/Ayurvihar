@@ -35,6 +35,8 @@ public class Under5_Add_Child_Record extends Activity implements TaskCompleteCR{
     private int year, month, day;
     EditText Addn1 , Addn2 , Addn3 , Addn4 , Addn5 , Addn6 , Addn7 , Addn8 , Addn9;
 
+
+    public static boolean Test = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +82,7 @@ public class Under5_Add_Child_Record extends Activity implements TaskCompleteCR{
     }
     public void TaskCreate()
     {
+        Test = true;
         BackgroundTaskIM backgroundTaskIM = new BackgroundTaskIM(getApplicationContext(),dialog,Under5_Add_Child_Record.this);
         backgroundTaskIM.execute("Create" ,Addn1.getText().toString(),
                 Addn2.getText().toString(),"","","","","","","","","","","","","","","",
