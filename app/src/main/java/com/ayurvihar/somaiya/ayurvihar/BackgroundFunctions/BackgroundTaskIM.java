@@ -51,9 +51,11 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
         String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
         String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php";
         method = params[0];
-        if (method.equals("Create")) {
+        if (method.equals("Create") | method.equals("Update")) {
 
+            Log.i("incri","ien");
             try {
+                Log.i("incri","ien");
                 URL url;
                 if( method.equals("Create") )
                     url = new URL(Create);
@@ -66,6 +68,7 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
 
+                Log.i("Come","Here");
                 String data =
                         URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
                                 URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
@@ -117,8 +120,10 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 httpURLConnection.disconnect();
                 return "RS";
             } catch (MalformedURLException e) {
+                Log.i("Info","malformed");
                 e.printStackTrace();
             } catch (IOException e) {
+                Log.i("info" , "ioexcepion");
                 e.printStackTrace();
             }
         }
