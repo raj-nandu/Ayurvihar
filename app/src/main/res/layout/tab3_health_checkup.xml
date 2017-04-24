@@ -1,6 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="784dp"
+            android:layout_height="1047dp"
+            android:orientation="vertical"
+            android:weightSum="15">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="45sp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:layout_marginTop="50dp"
+                android:text="Health Check Up"/>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="General Health Checkup Details"
+                android:textSize="30sp"
+                android:textAlignment="center"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:hint="Health Check Up Identifier"
+                    android:textAlignment="center"
+                    android:id="@+id/addhl1"/>
+            </android.support.design.widget.TextInputLayout>
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:weightSum="2">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <EditText
+                        android:layout_gravity="center"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:id="@+id/addhl2"
+                        android:hint="Child Identifier "
+                        android:textAlignment="center"/>
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <EditText
+                        android:layout_gravity="center"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:id="@+id/addhl3"
+                        android:hint="Family Identifier"
+                        android:textAlignment="center"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:onClick="setDate"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/addhl4"
+                    android:hint="CheckUp Date"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/addhl5"
+                    android:hint="Height"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/addhl6"
+                    android:hint="Weight"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/addhl7"
+                    android:hint="Weight to Age Ratio"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="320dp"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:id="@+id/addhl8"
+                    android:hint="Remarks"
+                    android:textAlignment="center"/>
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:layout_marginTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Add Checkup Record  "
+                android:id="@+id/addhl"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

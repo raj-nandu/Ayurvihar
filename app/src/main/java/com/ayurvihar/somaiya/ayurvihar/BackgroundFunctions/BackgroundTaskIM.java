@@ -50,7 +50,7 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
         String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
         String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php";
         method = params[0];
-        if (method.equals("Create") | method.equals("Update") ) {
+        if (method.equals("Create")) {
 
             try {
                 URL url;
@@ -62,7 +62,6 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
 
-                //httpURLConnection.setDoInput(true);
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
 

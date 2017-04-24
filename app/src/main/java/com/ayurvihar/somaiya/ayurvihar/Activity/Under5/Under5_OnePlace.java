@@ -3,7 +3,6 @@ package com.ayurvihar.somaiya.ayurvihar.Activity.Under5;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,7 @@ import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskHR;
 
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
 import com.ayurvihar.somaiya.ayurvihar.R;
-import com.ayurvihar.somaiya.ayurvihar.Under5_Scroll_View;
+import com.ayurvihar.somaiya.ayurvihar.Fragment.Under5_Scroll_View;
 
 public class Under5_OnePlace extends Activity implements TaskCompleteCR {
 
@@ -31,6 +30,7 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_place);
         cid = (EditText) findViewById(R.id.cid);
+        cid.setText("dmpatel");
         btn = (Button) findViewById(R.id.loginAll);
         dialog = new ProgressDialog(Under5_OnePlace.this);
 

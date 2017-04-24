@@ -56,7 +56,7 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
             try
             {
                 URL url;
-                if( method.equals("Create") | method.equals("Update"))
+                if( method.equals("Create") )
                     url = new URL(Create);
                 else
                     url = new URL(Update);
@@ -65,16 +65,16 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                 httpURLConnection.setDoOutput(true);
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
-
+                Log.i("info dwinei" , "jvirbviur");
                 String data=
-                        URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
-                                URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
                                 URLEncoder.encode("childhealthcheckupnumber", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&" +
+                                URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
+                                URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
                                 URLEncoder.encode("checkupdate", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8") + "&" +
                                 URLEncoder.encode("height", "UTF-8") + "=" + URLEncoder.encode(params[5], "UTF-8") + "&" +
                                 URLEncoder.encode("weight", "UTF-8") + "=" + URLEncoder.encode(params[6], "UTF-8") + "&" +
                                 URLEncoder.encode("weightforagestatus", "UTF-8") + "=" + URLEncoder.encode(params[7], "UTF-8") + "&" +
-                                URLEncoder.encode("remarks", "UTF-8") + "=" + URLEncoder.encode(params[6], "UTF-8");
+                                URLEncoder.encode("remarks", "UTF-8") + "=" + URLEncoder.encode(params[8], "UTF-8");
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();

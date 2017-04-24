@@ -1,6 +1,5 @@
-package com.ayurvihar.somaiya.ayurvihar;
+package com.ayurvihar.somaiya.ayurvihar.Fragment;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,64 +9,48 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.ayurvihar.somaiya.ayurvihar.Activity.Under5.Under_5_Update_Child_Record;
-import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.BackgroundTaskCR;
 import com.ayurvihar.somaiya.ayurvihar.BackgroundFunctions.TaskCompleteCR;
-import com.ayurvihar.somaiya.ayurvihar.Fragment.Tab1;
-import com.ayurvihar.somaiya.ayurvihar.Fragment.Tab2;
+import com.ayurvihar.somaiya.ayurvihar.R;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 public class Under5_Scroll_View extends FragmentActivity implements TaskCompleteCR {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    public static Context ctx = getApplicationContext();
-    public static Under5_Scroll_View view = Under5_Scroll_View.this;
+   EditText Addn1 , Addn2 , Addn3 , Addn4 , Addn5 , Addn6 , Addn7 , Addn8 , Addn9;
+    public static Context ctx;
+    public static Under5_Scroll_View SV;
 
-    public ProgressDialog dialog = new ProgressDialog(Under5_Scroll_View.this);
-
+    public static ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_under5__scroll__view);
-
+        Intent i = getIntent();
+        ctx = getApplicationContext();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
+        SV = Under5_Scroll_View.this;
+        dialog = new ProgressDialog(Under5_Scroll_View.this);
+
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        Intent i = getIntent();
-
-
-        Button update = (Button) findViewById(R.id.update);
-
-        if( i.getStringExtra("type").equals("Scan"))
-        {
-            update.setEnabled(false);
-            update.setAlpha(0.0f);
-            update.setText("");
-        }
 
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter( getSupportFragmentManager());
-        adapter.addFrag(new Tab1(), "Nikhil's Tab 1");
-        adapter.addFrag(new Tab2(), "Nikhil's Tab 2");
-        adapter.addFrag(new Tab2(), "Nikhil's Tab 3");
+        adapter.addFrag(new Tab1(), "          Child Data          ");
+        adapter.addFrag(new Tab2(), "          Immunization          ");
+        adapter.addFrag(new Tab3(), "          Health Checkup          ");
+        adapter.addFrag(new Tab4(), "          Health Checkup Records          ");
 
         this.viewPager.setAdapter(adapter);
 

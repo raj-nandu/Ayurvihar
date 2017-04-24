@@ -27,7 +27,7 @@
         <activity android:name=".Activity.Under5.Under_5_Update_Child_Record" />
         <activity android:name=".Activity.Under5.Under5_Immunization_Search" />
         <activity android:name=".Activity.Under5.Under5_OnePlace" />
-        <activity android:name=".Under5_Scroll_View"></activity>
+        <activity android:name=".Fragment.Under5_Scroll_View"></activity>
     </application>
 
 </manifest>
