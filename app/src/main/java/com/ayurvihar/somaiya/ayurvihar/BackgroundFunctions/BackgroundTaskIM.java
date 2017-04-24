@@ -106,7 +106,6 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                                 URLEncoder.encode("vita_8_given", "UTF-8") + "=" + URLEncoder.encode(params[38], "UTF-8") + "&" +
                                 URLEncoder.encode("dpt_booster2_vita_9", "UTF-8") + "=" + URLEncoder.encode(params[39], "UTF-8") + "&" +
                                 URLEncoder.encode("dpt_booster2_vita_9_given", "UTF-8") + "=" + URLEncoder.encode(params[40], "UTF-8");
-
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();

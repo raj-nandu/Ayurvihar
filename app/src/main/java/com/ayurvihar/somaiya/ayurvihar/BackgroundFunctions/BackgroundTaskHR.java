@@ -67,7 +67,7 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
                 Log.i("info dwinei" , "jvirbviur");
                 String data=
-                                URLEncoder.encode("childhealthcheckupnumber", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&" +
+                        URLEncoder.encode("childhealthcheckupnumber", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&" +
                                 URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
                                 URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
                                 URLEncoder.encode("checkupdate", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8") + "&" +
@@ -135,7 +135,6 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                         Under5_Health_Record_Core uhr = new Under5_Health_Record_Core();
                         uhr.childhealthcheckupnumber=temp[0];
                         uhr.childidentifier=temp[1];
-                        Log.i(" IndexHR" , temp.toString());
                         uhr.familyidentifier=temp[2];
                         uhr.checkupdate=temp[3];
                         uhr.height=temp[4];
