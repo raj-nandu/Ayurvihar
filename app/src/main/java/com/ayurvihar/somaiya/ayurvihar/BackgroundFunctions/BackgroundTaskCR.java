@@ -47,9 +47,9 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String Create = "http://nikhil4969.esy.es/Ayurvihar/child_rec_add.php";
-        String Update = "http://nikhil4969.esy.es/Ayurvihar/child_rec_update.php";
-        String Select = "http://nikhil4969.esy.es/Ayurvihar/child_rec_display.php";
+        String Create = "https://vitelline-mothers.000webhostapp.com/child_rec_add.php";
+        String Update = "https://vitelline-mothers.000webhostapp.com/child_rec_update.php";
+        String Select = "https://vitelline-mothers.000webhostapp.com/child_rec_display.php";
         method = params[0];
         if (method.equals("Create") | method.equals("Update") ) {
 
@@ -164,6 +164,7 @@ public class BackgroundTaskCR extends AsyncTask <String,Void,String> {
             case "Select" : if(result.equals("No Records Found"))
                             Present = false;
                             t.TaskRecords();
+                            Log.v("select","recordsfound");
                             break;
         }
         dialog.dismiss();

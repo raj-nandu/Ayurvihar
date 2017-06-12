@@ -44,8 +44,8 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     }
     @Override
     protected String doInBackground(String... params) {
-        String reg_url = "http://nikhil4969.esy.es/Ayurvihar/register.php";
-        String login_url = "http://nikhil4969.esy.es/Ayurvihar/login.php";
+        String reg_url = "https://vitelline-mothers.000webhostapp.com/register.php";
+        String login_url = "https://vitelline-mothers.000webhostapp.com/login.php";
         method = params[0];
         if (method.equals("register")) {
             String name = params[1];

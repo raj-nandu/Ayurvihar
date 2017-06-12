@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements TaskComplete {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"comming" ,Toast.LENGTH_LONG );
+                Toast.makeText(getApplicationContext(),"coming" ,Toast.LENGTH_LONG );
 
                 if( Username.getText().toString().equals("ADMIN_PASSWORD") && Password.getText().toString().equals("PASSWORD"))
                 {

@@ -47,13 +47,14 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String Create = "http://nikhil4969.esy.es/Ayurvihar/immunization_create.php";
-        String Update = "http://nikhil4969.esy.es/Ayurvihar/immunization_update.php";
-        String Select = "http://nikhil4969.esy.es/Ayurvihar/immunization_select.php";
+        String Create = "https://vitelline-mothers.000webhostapp.com/immunization_create.php";
+        String Update = "https://vitelline-mothers.000webhostapp.com/immunization_update.php";
+        String Select = "https://vitelline-mothers.000webhostapp.com/immunization_select.php";
         method = params[0];
-        if (method.equals("Create") | method.equals("Update")) {
+        Log.v("im","url");
+        if (method.equals("Create") || method.equals("Update")) {
 
-            Log.i("incri","ien");
+            Log.v("incri","ien");
             try {
                 Log.i("incri","ien");
                 URL url;
@@ -131,9 +132,11 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
         else if(method.equals("Select") )
         {
             try {
+                Log.v("IM","select");
                 URL url = new URL(Select);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
+                Log.v("IM","1");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
@@ -141,22 +144,28 @@ public class BackgroundTaskIM extends AsyncTask <String,Void,String> {
                 String data = URLEncoder.encode("childidentifier", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
                         URLEncoder.encode("familyidentifier", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8");
                 bufferedWriter.write(data);
+                Log.v("Info",data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();
+                Log.v("Info",data);
                 InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                Log.v("Info",data);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+                Log.v("Info",data);
                 String response = "";
                 String line  = "";
+                Log.v("Content1",response);
                 while ((line = bufferedReader.readLine())!=null)
                 {
+                    Log.v("Info",data);
                     response+= line;
                 }
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
 
-                Log.i("Content" , response);
+                Log.v("Content" , response);
                 String R[] = response.split(",");
                 Under5_Immunization_Core.childidentifier = R[0];
                 Under5_Immunization_Core.familyidentifier = R[1];

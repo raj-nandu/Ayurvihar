@@ -47,9 +47,9 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
 
     @Override
     protected String doInBackground(String...params){
-        String Create="http://nikhil4969.esy.es/Ayurvihar/health_rec_add.php";
-        String Update="http://nikhil4969.esy.es/Ayurvihar/health_rec_update.php";
-        String Select="http://nikhil4969.esy.es/Ayurvihar/health_rec_display.php";
+        String Create="https://vitelline-mothers.000webhostapp.com/health_rec_add.php";
+        String Update="https://vitelline-mothers.000webhostapp.com/health_rec_update.php";
+        String Select="https://vitelline-mothers.000webhostapp.com/health_rec_display.php";
         method=params[0];
         if(method.equals("Create")|method.equals("Update"))
         {
@@ -113,7 +113,7 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                 outputStream.close();
 
                 InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
                 String response = "";
                 String line  = "";
                 while ((line = bufferedReader.readLine())!=null)
@@ -124,16 +124,19 @@ public class BackgroundTaskHR extends AsyncTask <String,Void,String> {
                 inputStream.close();
                 httpURLConnection.disconnect();
 
-                Log.i("Content" , response);
+                Log.v("Contenthr" , response);
                 String R[] = response.split(";");
+                Log.v("rlen",""+R.length);
 
                 for(int i=0;i<R.length;i++)
                 {
-                    if(!R[i].equals(""))
+                    //Log.v("forhr","hello"+R[i]);
+                    if(!R[i].equals(",,,,,,,"))
                     {
                         String temp[]=R[i].split(",");
                         Under5_Health_Record_Core uhr = new Under5_Health_Record_Core();
                         uhr.childhealthcheckupnumber=temp[0];
+                        //Log.v("forhr","hello"+R[i]);
                         uhr.childidentifier=temp[1];
                         uhr.familyidentifier=temp[2];
                         uhr.checkupdate=temp[3];

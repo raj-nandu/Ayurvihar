@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.util.Log;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,7 +58,8 @@ public class Under5_OnePlace extends Activity implements TaskCompleteCR {
     @Override
     public void TaskRecords() {
         count++;
-        if( count == 3) {
+        Log.v("taskr",""+count);
+        if( count ==3) {
             if (backgroundTaskCR.Present) {
 
                 Intent i = new Intent(getApplicationContext(), Under5_Scroll_View.class);
